@@ -20,30 +20,49 @@ body {
     padding: 50px;
     border-radius: 14px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.language-toggle {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+}
+
+.language-toggle button {
+    background: #4a90e2;
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    margin-left: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.language-toggle button:hover {
+    background: #357bd8;
 }
 
 h1 {
     margin-top: 0;
     font-size: 32px;
     font-weight: 600;
-    color: #1a2b3c;
 }
 
 h2 {
     margin-top: 40px;
     font-size: 20px;
     font-weight: 600;
-    color: #2d4059;
 }
 
-p {
+p, li {
     line-height: 1.7;
     font-size: 15px;
 }
 
 ul {
     padding-left: 20px;
-    line-height: 1.7;
 }
 
 .footer {
@@ -59,6 +78,16 @@ ul {
     padding: 15px;
     border-left: 4px solid #4a90e2;
     border-radius: 6px;
+    margin-bottom: 25px;
+}
+
+.hidden {
+    display: none;
+}
+
+.hebrew {
+    direction: rtl;
+    text-align: right;
 }
 </style>
 </head>
@@ -66,6 +95,14 @@ ul {
 <body>
 
 <div class="container">
+
+<div class="language-toggle">
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('he')">עברית</button>
+</div>
+
+<!-- ENGLISH VERSION -->
+<div id="content-en">
 
 <h1>Privacy Policy – ShiftLive Ride Chat</h1>
 <p><strong>Last Updated:</strong> February 2026</p>
@@ -78,20 +115,16 @@ This Extension is intended exclusively for authorized ShiftLive business users o
 <p>
 Shift Live Ltd. ("Company", "We", "Us") provides the Chrome extension 
 <strong>"ShiftLive Ride Chat"</strong> (the “Extension”).
-The Extension enables authorized ShiftLive users to send chat messages to selected rides within the ShiftLive system.
+The Extension enables authorized users to send chat messages to selected rides within the ShiftLive system.
 </p>
 
 <h2>2. Data Access</h2>
-<p>During active use within ShiftLive domains, the Extension may temporarily access:</p>
+<p>The Extension may temporarily access:</p>
 <ul>
 <li>Authorization header (access token)</li>
 <li>Customer ID</li>
 <li>Ride identifiers (Ride IDs)</li>
 </ul>
-
-<p>
-This data is accessed strictly to enable secure communication with ShiftLive servers.
-</p>
 
 <h2>3. Purpose of Processing</h2>
 <ul>
@@ -100,61 +133,135 @@ This data is accessed strictly to enable secure communication with ShiftLive ser
 <li>Sending ride chat messages</li>
 </ul>
 
-<p>No analytics, profiling, or tracking is performed.</p>
-
 <h2>4. Data Storage & Retention</h2>
 <p>
-The Extension does not store personal data persistently.
-All session data is processed transiently in memory and automatically discarded when:
+No personal data is stored persistently.
+All session data is processed in memory and automatically discarded when the session ends.
 </p>
-<ul>
-<li>The extension popup is closed</li>
-<li>The browser tab is closed</li>
-<li>The browser session ends</li>
-</ul>
-
-<p>No external storage systems are used.</p>
 
 <h2>5. Data Sharing</h2>
 <p>
-The Extension does not sell, rent, transfer, or share data with any third parties.
-All communication occurs directly between the user's browser and ShiftLive servers over secure HTTPS connections.
+No data is sold, rented, or shared with third parties.
+All communication occurs directly with ShiftLive servers over HTTPS.
 </p>
 
 <h2>6. No Tracking</h2>
 <p>
-The Extension does not track browsing activity outside ShiftLive-related domains and does not collect analytics or advertising identifiers.
+The Extension does not track browsing activity or collect analytics.
 </p>
 
 <h2>7. Security</h2>
 <p>
 All communications are encrypted via HTTPS.
-No third-party SDKs, analytics tools, or tracking libraries are included in the Extension.
+No third-party tracking tools are included.
 </p>
 
 <h2>8. Legal Basis (GDPR)</h2>
 <p>
-For users in the European Economic Area (EEA), processing is performed under Article 6(1)(b) GDPR (performance of a contract) and/or Article 6(1)(f) GDPR (legitimate interests), where applicable.
+Processing is performed under GDPR Article 6(1)(b) and/or 6(1)(f), where applicable.
 </p>
 
-<h2>9. Updates</h2>
-<p>
-We may update this Privacy Policy from time to time.
-Updates will be published on this page with a revised date.
-</p>
-
-<h2>10. Contact</h2>
+<h2>9. Contact</h2>
 <p>
 Shift Live Ltd.<br>
 Israel<br>
 Email: support@shiftlive.net
 </p>
 
+</div>
+
+
+<!-- HEBREW VERSION -->
+<div id="content-he" class="hidden hebrew">
+
+<h1>מדיניות פרטיות – ShiftLive Ride Chat</h1>
+<p><strong>עודכן לאחרונה:</strong> פברואר 2026</p>
+
+<div class="highlight">
+התוסף מיועד אך ורק למשתמשים עסקיים מורשים של מערכת ShiftLive הפועלים תחת הסכם התקשרות עם חברת Shift Live Ltd.
+</div>
+
+<h2>1. כללי</h2>
+<p>
+חברת Shift Live Ltd. מספקת תוסף לדפדפן Chrome בשם 
+<strong>"ShiftLive Ride Chat"</strong>.
+התוסף מאפשר למשתמשים מורשים לשלוח הודעות צ'אט לנסיעות במערכת ShiftLive.
+</p>
+
+<h2>2. מידע אליו ניגש התוסף</h2>
+<p>במהלך שימוש פעיל, התוסף עשוי לגשת באופן זמני ל:</p>
+<ul>
+<li>כותרת Authorization (Access Token)</li>
+<li>מזהה לקוח</li>
+<li>מזהי נסיעות (Ride IDs)</li>
+</ul>
+
+<h2>3. מטרת השימוש במידע</h2>
+<ul>
+<li>אימות בקשות API</li>
+<li>זיהוי חשבון הלקוח הרלוונטי</li>
+<li>שליחת הודעות צ'אט לנסיעות</li>
+</ul>
+
+<h2>4. שמירת מידע</h2>
+<p>
+התוסף אינו שומר מידע אישי באופן קבוע.
+כל הנתונים נשמרים בזיכרון בלבד ונמחקים אוטומטית עם סיום השימוש.
+</p>
+
+<h2>5. שיתוף מידע</h2>
+<p>
+לא מתבצע מכירה, השכרה או שיתוף מידע עם צדדים שלישיים.
+כל התקשורת מתבצעת ישירות מול שרתי ShiftLive באמצעות HTTPS מוצפן.
+</p>
+
+<h2>6. ללא מעקב</h2>
+<p>
+התוסף אינו מבצע מעקב אחר פעילות גלישה ואינו אוסף נתוני אנליטיקה.
+</p>
+
+<h2>7. אבטחה</h2>
+<p>
+כל התקשורת מוצפנת.
+אין שימוש בכלי מעקב או שירותים חיצוניים.
+</p>
+
+<h2>8. בסיס חוקי (GDPR)</h2>
+<p>
+העיבוד מתבצע בהתאם לסעיף 6(1)(b) ו-6(1)(f) ל-GDPR לפי הצורך.
+</p>
+
+<h2>9. יצירת קשר</h2>
+<p>
+Shift Live Ltd.<br>
+ישראל<br>
+Email: support@shiftlive.net
+</p>
+
+</div>
+
 <div class="footer">
 © 2026 Shift Live Ltd. All rights reserved.
 </div>
 
 </div>
+
+<script>
+function setLang(lang) {
+    const en = document.getElementById("content-en");
+    const he = document.getElementById("content-he");
+
+    if (lang === "he") {
+        en.classList.add("hidden");
+        he.classList.remove("hidden");
+        document.documentElement.lang = "he";
+    } else {
+        he.classList.add("hidden");
+        en.classList.remove("hidden");
+        document.documentElement.lang = "en";
+    }
+}
+</script>
 
 </body>
 </html>
